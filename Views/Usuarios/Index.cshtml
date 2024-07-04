@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Usuarios>
+
+<h1>Lista de Usuarios</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Usuario</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Clave</th>
+            <th>Usuario</th>
+            <th>Rol</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Clave</td>
+                <td>@item.Usuario</td>
+                <td>@item.Rol</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")'">Regresar</button>

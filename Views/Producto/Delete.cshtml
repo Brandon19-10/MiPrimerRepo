@@ -1,0 +1,16 @@
+﻿@model ProyectoFinal.Models.Producto
+
+<h1>Eliminar Producto</h1>
+
+<div>
+    <h4>¿Estás seguro de que quieres eliminar este producto?</h4>
+    <h4>Nombre: @Model.Nombre</h4>
+    <h4>Tipo: @Model.IdTipo</h4>
+    <h4>IVA: @Model.Iva</h4>
+    <h4>Código de Barras: @Model.CodigoBarras</h4>
+</div>
+
+<form asp-action="Delete" asp-route-id="@Model.Id">
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Producto")'">Regresar</button>
+</form>

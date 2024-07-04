@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Producto>
+
+<h1>Lista de Productos</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Producto</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>IVA</th>
+            <th>Código de Barras</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.IdTipo</td>
+                <td>@item.Iva</td>
+                <td>@item.CodigoBarras</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")'">Regresar</button>

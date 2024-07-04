@@ -1,0 +1,21 @@
+﻿@using System.Security.Claims;
+@{
+    ViewData["Title"] = "Sistema";
+}
+
+<div class="text-center">
+
+    @if (User.Identity!.IsAuthenticated)
+    {
+        <h1 class="display-4">
+            Bienvenido al Sistema
+
+            @User.Claims.Where(c => c.Type == ClaimTypes.Name).Select(c => c.Value).SingleOrDefault()
+
+        </h1>
+    }
+</div>
+
+<div class="image-container">
+    <img src="~/images/dos.png" alt="Hola" />
+</div>
